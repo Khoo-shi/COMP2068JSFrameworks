@@ -17,6 +17,10 @@ else {
 }
 
     console.log("User: " + userSelection);
-    console.log("Computer: " + computerSelection);    
+    console.log("Computer: " + computerSelection);   
+    
+    if (userSelection === computerSelection) {
+    console.log("It's a tie");
+}
 
 });
