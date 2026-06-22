@@ -29,8 +29,15 @@ else {
 ) {
     console.log("User Wins");
 }
-    else {
+    else if (
+    (userSelection === "ROCK" && computerSelection === "PAPER") ||
+    (userSelection === "PAPER" && computerSelection === "SCISSORS") ||
+    (userSelection === "SCISSORS" && computerSelection === "ROCK")
+) {
     console.log("Computer Wins");
+}
+else {
+    console.log("Invalid input. Please enter ROCK, PAPER, or SCISSORS.");
 }
 
 });
