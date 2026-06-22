@@ -6,5 +6,14 @@ prompt.get(['userSelection'], function (err, result) {
     let userSelection = result.userSelection.toUpperCase();
     let randomNumber = Math.random();
 let computerSelection = "";
+if (randomNumber <= 0.34) {
+    computerSelection = "PAPER";
+}
+else if (randomNumber <= 0.67) {
+    computerSelection = "SCISSORS";
+}
+else {
+    computerSelection = "ROCK";
+}
 
 });
