@@ -29,5 +29,8 @@ else {
 ) {
     console.log("User Wins");
 }
+    else {
+    console.log("Computer Wins");
+}
 
 });
