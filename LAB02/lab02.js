@@ -16,4 +16,7 @@ else {
     computerSelection = "ROCK";
 }
 
+    console.log("User: " + userSelection);
+    console.log("Computer: " + computerSelection);    
+
 });
