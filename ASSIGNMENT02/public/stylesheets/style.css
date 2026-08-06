@@ -274,3 +274,157 @@ main {
     padding: 3rem 1.25rem;
   }
 }
+.directory-hero {
+  background: #eef4f2;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.directory-hero .container,
+.resource-directory .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #41695f;
+}
+
+.directory-hero h1 {
+  margin: 0 0 15px;
+  font-size: 2.7rem;
+  color: #173f35;
+}
+
+.directory-hero p {
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: #51625e;
+}
+
+.resource-directory {
+  padding: 60px 20px;
+}
+
+.directory-heading {
+  margin-bottom: 30px;
+}
+
+.directory-heading h2 {
+  margin-bottom: 8px;
+  color: #173f35;
+}
+
+.directory-heading p {
+  color: #66736f;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.resource-card {
+  padding: 24px;
+  border: 1px solid #dce5e2;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(27, 63, 53, 0.07);
+}
+
+.resource-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.category-badge,
+.free-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.category-badge {
+  background: #e2efeb;
+  color: #285548;
+}
+
+.free-badge {
+  background: #f0e8cb;
+  color: #725f19;
+}
+
+.resource-card h3 {
+  margin: 0 0 12px;
+  color: #173f35;
+}
+
+.resource-description {
+  min-height: 75px;
+  line-height: 1.6;
+  color: #586762;
+}
+
+.resource-details {
+  margin: 18px 0;
+  font-size: 0.9rem;
+  color: #4c5c57;
+}
+
+.resource-details p {
+  margin: 7px 0;
+}
+
+.resource-link {
+  display: inline-block;
+  color: #245f50;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.resource-link:hover {
+  text-decoration: underline;
+}
+
+.empty-directory {
+  padding: 55px 25px;
+  border: 2px dashed #cbd8d4;
+  border-radius: 12px;
+  text-align: center;
+  background: #f8fbfa;
+}
+
+.empty-directory h3 {
+  color: #173f35;
+}
+
+.empty-directory p {
+  color: #65736f;
+}
+
+@media (max-width: 850px) {
+  .resource-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .directory-hero h1 {
+    font-size: 2rem;
+  }
+
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+}
