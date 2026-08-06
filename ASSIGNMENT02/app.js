@@ -1,3 +1,9 @@
+var session = require('express-session');
+var { MongoStore } = require('connect-mongo');
+var passport = require('passport');
+var flash = require('connect-flash');
+
+var configurePassport = require('./config/passport');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -13,6 +19,7 @@ var resourcesRouter = require('./routes/resources');
 
 
 var app = express();
+configurePassport(passport);
 const connectDB = require("./config/db");
 
 
@@ -29,8 +36,41 @@ hbs.registerPartials(path.join(__dirname, 'views/partials'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+
 app.use(cookieParser());
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI
+    }),
+
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24
+    }
+  })
+);
+
+app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  res.locals.successMessage = req.flash('success');
+  res.locals.errorMessage = req.flash('error');
+  next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
