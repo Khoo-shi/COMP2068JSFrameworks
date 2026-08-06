@@ -428,3 +428,83 @@ main {
     grid-template-columns: 1fr;
   }
 }
+.directory-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-page {
+  min-height: 75vh;
+  padding: 60px 20px;
+  background: #f4f8f7;
+}
+
+.form-page .container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.form-card {
+  padding: 35px;
+  border: 1px solid #dce5e2;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(27, 63, 53, 0.08);
+}
+
+.form-heading {
+  margin-bottom: 30px;
+}
+
+.form-heading h1 {
+  margin-bottom: 12px;
+  color: #173f35;
+}
+
+.form-heading p {
+  color: #61706b;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #294a42;
+}
+
+.form-control,
+.form-select {
+  padding: 11px 13px;
+  border-color: #cfdad7;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #497d70;
+  box-shadow: 0 0 0 0.2rem rgba(73, 125, 112, 0.18);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .directory-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .form-card {
+    padding: 24px 18px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+}
