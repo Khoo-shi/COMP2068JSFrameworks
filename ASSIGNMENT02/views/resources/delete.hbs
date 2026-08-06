@@ -1,0 +1,45 @@
+<section class="form-page">
+  <div class="container">
+    <div class="delete-card">
+      <p class="eyebrow">DELETE CONFIRMATION</p>
+
+      <h1>Delete this resource?</h1>
+
+      <p>
+        You are about to permanently delete
+        <strong>{{resource.name}}</strong>.
+      </p>
+
+      <div class="delete-summary">
+        <p>
+          <strong>Category:</strong>
+          {{resource.category}}
+        </p>
+
+        <p>
+          <strong>Location:</strong>
+          {{resource.address}}, {{resource.city}}
+        </p>
+      </div>
+
+      <p class="delete-warning">
+        This action cannot be undone.
+      </p>
+
+      <form
+        action="/resources/{{resource._id}}/delete"
+        method="POST"
+      >
+        <div class="form-actions">
+          <a href="/resources" class="btn btn-outline-secondary">
+            Cancel
+          </a>
+
+          <button type="submit" class="btn btn-danger">
+            Yes, Delete Resource
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -3,6 +3,7 @@ var { MongoStore } = require('connect-mongo');
 var passport = require('passport');
 var flash = require('connect-flash');
 
+var authRouter = require("./routes/auth");
 var configurePassport = require('./config/passport');
 var createError = require('http-errors');
 var express = require('express');
@@ -11,6 +12,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
 require("dotenv").config();
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -74,6 +76,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use("/", authRouter);
 app.use('/resources', resourcesRouter);
 
 // catch 404 and forward to error handler

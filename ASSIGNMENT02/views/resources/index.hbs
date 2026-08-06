@@ -1,7 +1,9 @@
 <section class="directory-hero">
   <div class="container">
     <p class="eyebrow">LOCAL COMMUNITY SUPPORT</p>
+
     <h1>{{title}}</h1>
+
     <p>
       Browse services that support education, employment, housing,
       health, settlement and everyday community needs.
@@ -11,27 +13,33 @@
 
 <section class="resource-directory">
   <div class="container">
-   <div class="directory-heading">
-  <div>
-    <h2>Available Services</h2>
-    <p>Explore the resources currently listed in our directory.</p>
-  </div>
 
-  <a href="/resources/new" class="btn btn-primary">
-    Add Resource
-  </a>
-</div>
+    <div class="directory-heading">
+      <div>
+        <h2>Available Services</h2>
+        <p>Explore the resources currently listed in our directory.</p>
+      </div>
+
+      <a href="/resources/new" class="btn btn-primary">
+        Add Resource
+      </a>
     </div>
 
     {{#if resources.length}}
       <div class="resource-grid">
+
         {{#each resources}}
           <article class="resource-card">
+
             <div class="resource-card-header">
-              <span class="category-badge">{{category}}</span>
+              <span class="category-badge">
+                {{category}}
+              </span>
 
               {{#if isFree}}
-                <span class="free-badge">Free</span>
+                <span class="free-badge">
+                  Free
+                </span>
               {{/if}}
             </div>
 
@@ -65,16 +73,36 @@
                 Visit website
               </a>
             {{/if}}
+
+            <div class="resource-actions">
+              <a
+                href="/resources/{{_id}}/edit"
+                class="btn btn-sm btn-outline-primary"
+              >
+                Edit
+              </a>
+
+              <a
+                href="/resources/{{_id}}/delete"
+                class="btn btn-sm btn-outline-danger"
+              >
+                Delete
+              </a>
+            </div>
+
           </article>
         {{/each}}
+
       </div>
     {{else}}
       <div class="empty-directory">
         <h3>No resources are listed yet</h3>
+
         <p>
           Community resources will appear here after they are added.
         </p>
       </div>
     {{/if}}
+
   </div>
 </section>
