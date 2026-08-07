@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Resource = require('../models/Resource');
+var { ensureAuthenticated } = require('../middleware/auth');
 
 // Public read-only directory
 router.get('/', async function (req, res, next) {
@@ -18,14 +19,14 @@ router.get('/', async function (req, res, next) {
 });
 
 // Show create form
-router.get('/new', function (req, res) {
+router.get('/new', ensureAuthenticated, function (req, res) {
   res.render('resources/new', {
     title: 'Add Resource'
   });
 });
 
 // Save new resource
-router.post('/', async function (req, res) {
+router.post('/', ensureAuthenticated, async function (req, res) {
   try {
     await Resource.create({
       name: req.body.name,
@@ -49,7 +50,7 @@ router.post('/', async function (req, res) {
 });
 
 // Show edit form
-router.get('/:id/edit', async function (req, res, next) {
+router.get('/:id/edit', ensureAuthenticated, async function (req, res, next) {
   try {
     const resource = await Resource.findById(req.params.id);
 
@@ -67,7 +68,7 @@ router.get('/:id/edit', async function (req, res, next) {
 });
 
 // Update resource
-router.post('/:id/edit', async function (req, res) {
+router.post('/:id/edit', ensureAuthenticated, async function (req, res) {
   try {
     await Resource.findByIdAndUpdate(
       req.params.id,
@@ -103,7 +104,7 @@ router.post('/:id/edit', async function (req, res) {
 });
 
 // Show delete confirmation page
-router.get('/:id/delete', async function (req, res, next) {
+router.get('/:id/delete', ensureAuthenticated, async function (req, res, next) {
   try {
     const resource = await Resource.findById(req.params.id);
 
@@ -121,7 +122,7 @@ router.get('/:id/delete', async function (req, res, next) {
 });
 
 // Delete resource after confirmation
-router.post('/:id/delete', async function (req, res, next) {
+router.post('/:id/delete', ensureAuthenticated, async function (req, res, next) {
   try {
     await Resource.findByIdAndDelete(req.params.id);
     res.redirect('/resources');

@@ -26,17 +26,31 @@
             <a class="nav-link" href="/">Home</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/resources">Directory</a>
-          </li>
+          {{#if currentUser}}
+  <li class="nav-item">
+    <span class="nav-link">
+      Hi, {{currentUser.name}}
+    </span>
+  </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
+  <li class="nav-item ms-lg-2">
+    <a class="btn btn-outline-light" href="/logout">
+      Logout
+    </a>
+  </li>
+{{else}}
+  <li class="nav-item">
+    <a class="nav-link" href="/login">
+      Login
+    </a>
+  </li>
 
-          <li class="nav-item ms-lg-2">
-            <a class="btn btn-primary" href="/register">Create Account</a>
-          </li>
+  <li class="nav-item ms-lg-2">
+    <a class="btn btn-primary" href="/register">
+      Create Account
+    </a>
+  </li>
+{{/if}}
         </ul>
       </div>
     </div>

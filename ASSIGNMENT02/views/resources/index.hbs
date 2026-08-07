@@ -19,10 +19,11 @@
         <h2>Available Services</h2>
         <p>Explore the resources currently listed in our directory.</p>
       </div>
-
-      <a href="/resources/new" class="btn btn-primary">
-        Add Resource
-      </a>
+{{#if currentUser}}
+  <a href="/resources/new" class="btn btn-primary">
+    Add Resource
+  </a>
+{{/if}}
     </div>
 
     {{#if resources.length}}
@@ -74,21 +75,23 @@
               </a>
             {{/if}}
 
-            <div class="resource-actions">
-              <a
-                href="/resources/{{_id}}/edit"
-                class="btn btn-sm btn-outline-primary"
-              >
-                Edit
-              </a>
+            {{#if ../currentUser}}
+<div class="resource-actions">
+  <a
+    href="/resources/{{_id}}/edit"
+    class="btn btn-sm btn-outline-primary"
+  >
+    Edit
+  </a>
 
-              <a
-                href="/resources/{{_id}}/delete"
-                class="btn btn-sm btn-outline-danger"
-              >
-                Delete
-              </a>
-            </div>
+  <a
+    href="/resources/{{_id}}/delete"
+    class="btn btn-sm btn-outline-danger"
+  >
+    Delete
+  </a>
+</div>
+{{/if}}
 
           </article>
         {{/each}}
