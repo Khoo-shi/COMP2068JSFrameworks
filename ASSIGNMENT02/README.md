@@ -34,7 +34,7 @@ https://comp2068jsframeworks-qya4.onrender.com
 
 ## GitHub Repository
 
-PASTE YOUR GITHUB REPOSITORY LINK HERE
+(https://github.com/Khoo-shi/COMP2068JSFrameworks.git)
 
 ## Author
 
