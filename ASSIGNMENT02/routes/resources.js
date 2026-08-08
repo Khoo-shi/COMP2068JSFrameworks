@@ -7,12 +7,27 @@ var { ensureAuthenticated } = require('../middleware/auth');
 // Public read-only directory
 router.get('/', async function (req, res, next) {
   try {
-    const resources = await Resource.find().sort({ createdAt: -1 });
+   const search = req.query.search || "";
 
-    res.render('resources/index', {
-      title: 'Community Resources',
-      resources
-    });
+let query = {};
+
+if (search) {
+  query = {
+    $or: [
+      { name: { $regex: search, $options: "i" } },
+      { category: { $regex: search, $options: "i" } },
+      { city: { $regex: search, $options: "i" } }
+    ]
+  };
+}
+
+const resources = await Resource.find(query).sort({ createdAt: -1 });
+
+   res.render("resources/index", {
+    title: "Community Resources",
+    resources,
+    search
+});
   } catch (error) {
     next(error);
   }

@@ -17,6 +17,28 @@
     <div class="directory-heading">
       <div>
         <h2>Available Services</h2>
+        <form action="/resources" method="GET" class="mb-4">
+
+<div class="input-group">
+
+<input
+type="text"
+name="search"
+class="form-control"
+placeholder="Search by name, category or city..."
+value="{{search}}">
+
+<button
+class="btn btn-primary"
+type="submit">
+
+Search
+
+</button>
+
+</div>
+
+</form>
         <p>Explore the resources currently listed in our directory.</p>
       </div>
 {{#if currentUser}}
